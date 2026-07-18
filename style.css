@@ -1,0 +1,31 @@
+const totalQuestions = 100;
+
+const palette = document.getElementById("palette");
+
+// Question Palette Create
+for (let i = 1; i <= totalQuestions; i++) {
+    const btn = document.createElement("button");
+    btn.innerText = i;
+    btn.id = "q" + i;
+    palette.appendChild(btn);
+}
+
+// Timer (120 Minutes)
+let time = 120 * 60;
+
+const timer = document.getElementById("timer");
+
+setInterval(() => {
+
+    let min = Math.floor(time / 60);
+    let sec = time % 60;
+
+    timer.innerHTML =
+        String(min).padStart(2, "0") + ":" +
+        String(sec).padStart(2, "0");
+
+    if (time > 0) {
+        time--;
+    }
+
+}, 1000);
